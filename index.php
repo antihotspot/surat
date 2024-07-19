@@ -20,6 +20,7 @@
     <link href="main/css/owl.transitions.css" rel="stylesheet">
     <link href="main/css/prettyPhoto.css" rel="stylesheet">
     <link href="main/css/main.css" rel="stylesheet">
+    <link href="demo1/css/main.css" rel="stylesheet">
     <link href="main/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -45,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php"><img src="main/img/logo4.png" width="150" height="54" alt="logo"></a>
+                    <a class="navbar-brand" href="index.php"><img src="main/img/kpuh.png" width="150" height="54" alt="logo"></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -67,18 +68,18 @@
     <section id="cta2">
         <div class="container">
             <div class="text-center">
-                <h2 class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> KELURAHAN WERGU WETAN</h2>
-                <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT KETERANGAN
+                <h2 class="wow fadeInUp" data-wow-duration="200ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> KELURAHAN WERGU WETAN</h2>
+                <p class="wow fadeInUp" data-wow-duration="200ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT KETERANGAN
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
-                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms"">
+                        <div class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
                            <!-- Button trigger modal -->
                            <a href="login.php" type="submit" class="btn btn-primary">Login</a>
                            <a href="register.php" type="submit" class="btn btn-primary">Daftar</a>
                         </div>
                     </div>
                 </div>
-                <img class="img-responsive wow fadeIn" src="main/images/cta2/cta2-img.png" alt="" data-wow-duration="300ms" data-wow-delay="300ms">
+                <img class="img-responsive wow fadeIn" src="main/images/cta2/cta2-2.png" alt="" data-wow-duration="200ms" data-wow-delay="200ms">
             </div>
         </div>
     </section>
@@ -99,7 +100,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">SENIN - KAMIS</h4>
-                            <p>07.00 - 14.00 WIB</p>
+                            <p>07.00 - 07.01 WIB</p>
                         </div>
                     </div>
 
@@ -109,7 +110,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">JUM'AT</h4>
-                            <p>07.00 - 11.00 WIB</p>
+                            <p>07.00 - 07.02 WIB</p>
                         </div>
                     </div>
 
@@ -210,7 +211,7 @@
 
     <section id="contact">
         <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6177756555217!2d110.84666041431609!3d-6.816256968564331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c4e731de9701%3A0xc9561da6c650e3c4!2sKantor%20Kelurahan%20Wergu%20Wetan!5e0!3m2!1sen!2sid!4v1639534764090!5m2!1sen!2sid"  width="100%" height="650px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" alt="lokasi kelurahan"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.9156788858977!2d112.43725987509781!3d-7.474563673693409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780d91d408d069%3A0xc07d0d9431758cd!2sKPU%20Kota%20Mojokerto!5e0!3m2!1sid!2sid!4v1721372981419!5m2!1sid!2sid"  width="100%" height="650px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" alt="lokasi kelurahan"></iframe>
         </div>
     </section>
     <!--/#bottom-->
@@ -219,7 +220,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; <?php echo date('Y');?> KANTOR KELURAHAN WERGU WETAN KECAMATAN GEBOG KABUPATEN KUDUS
+                    &copy; <?php echo date('Y');?> KOMISI PEMILIHAN UMUM KOTA MOJOKERTO
                 </div>
                 <div class="col-sm-6">
                     <ul class="social-icons">

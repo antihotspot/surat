@@ -130,7 +130,7 @@
                         <td style="text-align:left;"><?php echo $tanggal_masuk; ?></td>
                         <td colspan="3"></td>
                     </tr>
-                </table>
+                </table>++++++
                                     </table>
                                     <br>
                                     <table border="0" align="center">

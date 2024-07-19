@@ -103,8 +103,8 @@ hr {
 }
 
 .btn.btn-primary {
-  background: #45aed6;
-  border-color: #2a95be;
+  background: #12b2f1;
+  border-color: #12b2f1;
 }
 
 .btn.btn-primary:hover,
@@ -332,7 +332,7 @@ ul.nostyle i {
 
 #cta {
   padding: 50px 0;
-  background-color: #eeeeee;
+  background-color: #a52828;
 }
 
 #cta h2 {
@@ -344,11 +344,12 @@ ul.nostyle i {
 }
 
 #cta2 {
-  background: #242a33 url(../images/cta2/cta2-tes.jpg) no-repeat 50% 50%;
+  background: #242a33 url(../images/cta2/cta2-kantor.jpg) no-repeat 50% 50%;
   background-size: cover;
   color: #fff;
   padding-top: 0px;
 }
+
 
 #cta2 .btn {
   margin-top: 10px;
@@ -361,7 +362,7 @@ ul.nostyle i {
 }
 
 #cta2 h2 > span {
-  color: #45aed6;
+  color: #12b2f1;
 }
 
 #features {
