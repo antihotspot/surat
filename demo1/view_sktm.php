@@ -148,7 +148,7 @@
                                         <tr>
                                             <td style="text-align:left;">Nomor Surat</td>
                                             <td>:</td>
-                                            <td style="text-align:left;"><?php echo $nomor_surat; ?></td>
+                                            <td style="text-align:left;"><?php echo $no_surat; ?></td>
                                             <td colspan="3"></td>
                                         </tr>
                                         <tr><td></td></tr>
@@ -329,8 +329,7 @@
                                     <br>
                                     
                                     <table>
-                                        <tr>Catatan :</tr>
-                                        
+                                        <tr>Catatan :</tr>   
                                     </table>
 
                                     <div class="container">
