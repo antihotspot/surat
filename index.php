@@ -68,7 +68,7 @@
     <section id="cta2">
         <div class="container">
             <div class="text-center">
-                <h2 class="wow fadeInUp" data-wow-duration="200ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> KELURAHAN WERGU WETAN</h2>
+                <h2 class="wow fadeInUp" data-wow-duration="200ms" data-wow-delay="0ms"><span>PELAYANAN</span> SURAT KETERANGAN <br> KPU KOTA MOJOKERTO</h2>
                 <p class="wow fadeInUp" data-wow-duration="200ms" data-wow-delay="100ms">KLIK LOGIN UNTUK REQUEST PEMBUATAN SURAT KETERANGAN
                 <div class="row justify-content-center">
                     <div class="col-lg-12 text-center">
@@ -87,7 +87,7 @@
     <section id="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title text-center wow fadeInDown">Waktu Pelayanan</h2>
+                <h2 class="section-title text-center wow fadeInDown">Vi</h2>
             </div>
             <div class="row">
                 <div class="col-sm-6 wow fadeInLeft">

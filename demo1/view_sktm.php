@@ -20,15 +20,20 @@
         }
         .signature-box {
             border: 1px solid black;
-            padding: 10px;
+            /* padding: 0px; */
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            height: 100px;
+            height: 70px;
         }
         .signature-box .left,
         .signature-box .right {
             width: 45%;
+        }
+        .signature-box .right {
+        border-left: 1px solid black;
+        height: 69px;
+        width: 150px;
         }
         .label {
             display: flex;
@@ -40,7 +45,7 @@
         .label div:last-child {
             text-align: right;
         }
-    </style>
+</style>
 
 <?php
 	if(isset($_GET['id_request_sktm'])){
@@ -73,17 +78,19 @@
         }
 	}
 ?>
- <div class="panel-header bg-primary-gradient">
-					<div class="page-inner py-5">
-						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-							<div>
-								<h2 class="text-white pb-2 fw-bold"></h2>
-							</div>
-						</div>
-					</div>
-                </div>
-                <div class="page-inner mt--5">
-					<div class="row mt--2">
+
+<div class="panel-header bg-primary-gradient">
+	<div class="page-inner py-5">
+		<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+			<div>
+				<h2 class="text-white pb-2 fw-bold"></h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-inner mt--5">
+	<div class="row mt--2">
 						<div class="col-md-6">
 							<div class="card full-height">
 								<div class="card-body">
@@ -115,10 +122,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+    </div>
                     
-                    <div class="row">
-                        <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
                                     <table border="0" align="center" style="width: 100%;">
@@ -133,11 +140,11 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align:left; width: 20%;">Dari</td>
-                                            <td style="width: 5%;">:</td>
-                                            <td style="text-align:left; width: 25%;"><?php echo $dari; ?></td>
+                                            <td style="text-align:left; width: 10%;">Dari</td>
+                                            <td style="width: 2%;">:</td>
+                                            <td style="text-align:left; width: 30%;"><?php echo $dari; ?></td>
                                             <td style="text-align:right; width: 25%;">No. Agenda</td>
-                                            <td style="width: 5%;">:</td>
+                                            <td style="width: 2%;">:</td>
                                             <td style="text-align:left; width: 20%;"><?php echo $no_agenda; ?></td>
                                         </tr>
                                         <tr><td></td></tr>
@@ -333,114 +340,52 @@
                                     </table>
 
                                     <div class="container">
-        <div class="notes">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
+                                        <div class="notes">
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                            <div class="line"></div>
+                                        </div>
 
-        <div class="footer">
-            <div class="footer-left">
-                <p>Terima kasih,</p>
-                <p style="margin-top: 50px;">___________________</p>
-            </div>
-            <div class="footer-right">
-                <div class="signature-box">
-                    <div class="left">
-                        <div class="label">
-                            <div>Tanggal:</div>
-                        </div>
-                        <div class="label">
-                            <div>Bulan:</div>
-                        </div>
-                        <div class="label">
-                            <div>Tahun:</div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="label">
-                            <div>Paraf:</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-                                    <br>
-                                    <table border="0" align="center">
-                                        <tr>
-                                            <th></th>
-                                            <th width="100px"></th>
-                                            <th>Kudus, <?php echo $acc;?></th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanda tangan <br> Yang bersangkutan </td>
-                                            <td></td>
-                                            <td>Lurah Wergu Wetan</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="15"></td>
-                                            <td></td>
-                                            <td rowspan="15"></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><b style="text-transform:uppercase"><u>(<?php echo $nama;?>)</u></b></td>
-                                            <td></td>
-                                            <td><b><u>(AGUS SUPRIYANTO)</u></b></td>
-                                        </tr>
-                                    </table>
-                                
-                                </table>
-
+                                            <div class="footer-left" style="float: left; width: 50%;">
+                                                <p>Terima kasih,</p>
+                                                <p style="margin-top: 50px;">___________________</p>
+                                            </div>
+                                            <div class="footer-right" style="float: right; width: 50%; text-align: right;">
+                                                <div class="signature-box">
+                                                    <div class="left">
+                                                        <div class="label">
+                                                            <div>Tanggal</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                        <div class="label">
+                                                            <div>Bulan</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                        <div class="label">
+                                                            <div>Tahun</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <div class="label">
+                                                            <div>Paraf</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
 								</div>
 							</div>
-						</div>
-					</div>
-			</div>
+                            
+<!-- penting -->
+		</div>
+	</div>
+</div>

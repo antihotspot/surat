@@ -8,7 +8,7 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
-										<h4 class="card-title">STATUS REQUEST SURAT KETERANGAN TIDAK MAMPU</h4>
+										<h4 class="card-title">STATUS REQUEST LEMBAR DISPOSISI</h4>
 									</div>
 								</div>
 								<div class="card-body">

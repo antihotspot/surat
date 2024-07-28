@@ -73,7 +73,7 @@
 					</div>
 </div>
 
-<!-- <?php
+<?php
 if(isset($_POST['kirim'])){
 	$nik = $_POST['nik'];
 	$keperluan = $_POST['keperluan'];
@@ -93,6 +93,6 @@ if(isset($_POST['kirim'])){
 		echo "<script language='javascript'>swal('Gagal...', 'Kirim Gagal', 'error');</script>" ;
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=request_sktm">';
 	  }
-} -->
+}
 	
 ?>
