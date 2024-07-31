@@ -15,47 +15,64 @@
 									<div class="table-responsive">
 										<table id="add1" class="display table table-striped table-hover" >
 											<thead>
-												<tr>
-                                                    <th>Tanggal Request</th>
-                                                    <th>NIK</th>
-                                                    <th>Nama Lengkap</th>
-													<th>Scan KTP</th>
-													<th>Scan KK</th>
-													<th>Keperluan</th>
-													<th style="width: 10%">Action</th>
-												</tr>
+											<tr>
+                                        <th>Dari</th>
+                                        <th>No Agenda</th>
+                                        <th>Nomor Surat</th>
+                                        <th>Tanggal Surat</th>
+                                        <th>Jam Diterima</th>
+                                        <th>Perihal</th>
+                                        <th>Tanggal Masuk</th>
+                                        <th>Catatan</th>
+										<th>Status</th>
+                                        <th style="width: 10%">Action</th>
+                                    </tr>
 											</thead>
 											<tbody>
                                                 <?php
-                                                    $sql = "SELECT * FROM data_request_sktm natural join data_user WHERE status=2";
+                                                    $sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE status=2";
                                                     $query = mysqli_query($konek,$sql);
                                                     while($data=mysqli_fetch_array($query,MYSQLI_BOTH)){
-                                                        $id_request_sktm=$data['id_request_sktm'];
-														$tgl = $data['tanggal_request'];
-														$format = date('d F Y', strtotime($tgl));
-                                                        $nik = $data['nik'];
-                                                        $nama = $data['nama'];
+                                                        $id_disposisi=$data['id_disposisi'];
+														$dari = $data['dari'];
+														$no_agenda = $data['no_agenda'];
+														$no_surat = $data['no_surat'];
+														$tanggal_surat = $data['tanggal_surat'];
+														$format = date('d F Y', strtotime($tanggal_surat));
+														$jam_diterima = $data['jam_diterima'];
+														$jam = date('H:i:s', strtotime($jam_diterima));
+                                                        $perihal = $data['perihal'];
+                                                        $tanggal_masuk = $data['tanggal_masuk'];
+														$format2 = date('d F Y', strtotime($tanggal_masuk));
+														$catatan = $data['catatan'];
 														$status = $data['status'];
-														$ktp = $data['scan_ktp'];
-														$kk = $data['scan_kk'];
-														$keperluan = $data['keperluan'];
+														
 
-                                                        if($status=="1"){
-                                                            $status = "<b style='color:blue'>ACC</b>";
+                                                        // if($status=="1"){
+                                                        //     $status = "<b style='color:blue'>ACC</b>";
+                                                        // }elseif($status=="0"){
+                                                        //     $status = "<b style='color:red'>BELUM ACC</b>";
+                                                        // }
+														if($status=="2"){
+                                                            $status = "<b style='color:blue'>SUDAH ACC LURAH</b>";
                                                         }elseif($status=="0"){
                                                             $status = "<b style='color:red'>BELUM ACC</b>";
                                                         }
                                                 ?>
 												<tr>
+												<td><?php echo $dari;?></td>
+												<td><?php echo $no_agenda;?></td>
+												<td><?php echo $no_surat;?></td>
 													<td><?php echo $format;?></td>
-                                                    <td><?php echo $nik;?></td>
-                                                    <td><?php echo $nama;?></td>
-													<td><img src="../dataFoto/scan_ktp/<?php echo $ktp;?>" width="50" height="50" alt=""></td>
-													<td><img src="../dataFoto/scan_kk/<?php echo $kk;?>" width="50" height="50" alt=""></td>
-													<td><?php echo $keperluan;?></td>
+                                                    <td><?php echo $jam;?></td>
+                                                    <td><?php echo $perihal;?></td>
+													<td><?php echo $format2;?></td>
+													<td><?php echo $catatan;?></td>
+													<td><?php echo $status;?></td>
+				
 													<td>
 														<div class="form-button-action">
-															<a href="?halaman=view_cetak_sktm&id_request_sktm=<?=$id_request_sktm;?>">
+															<a href="?halaman=view_cetak_sktm&id_disposisi=<?=$id_disposisi;?>">
 																<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Cetak">
 																	<i class="fa fa-edit"></i>
 																</button>

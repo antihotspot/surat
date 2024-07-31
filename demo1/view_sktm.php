@@ -1,7 +1,14 @@
-<?php include '../konek.php';?>
-<link href="css/sweetalert.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-2.1.3.min.js"></script>
-<script src="js/sweetalert.min.js"></script> 
+<?php 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+	include '/Applications/XAMPP/xamppfiles/htdocs/surat-keterangan-desa/konek.php';
+	
+	if (!$konek) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+?>
 
 <style>
         .line {
@@ -48,28 +55,25 @@
 </style>
 
 <?php
-	if(isset($_GET['id_request_sktm'])){
-		$id=$_GET['id_request_sktm'];
-		$sql = "SELECT * FROM data_request_sktm natural join data_user WHERE id_request_sktm='$id'";
+	if(isset($_GET['id_disposisi'])){
+		$id=$_GET['id_disposisi'];
+		$sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE id_disposisi='$id'";
 		$query = mysqli_query($konek,$sql);
         $data = mysqli_fetch_array($query,MYSQLI_BOTH);
-        $id=$data['id_request_sktm'];
-        $nik = $data['nik'];
-		$nama = $data['nama'];
-		$tempat = $data['tempat_lahir'];
-        $tgl = $data['tanggal_lahir'];
-        $tgl2 = $data['tanggal_request'];
-        $format1 = date('Y', strtotime($tgl2));
-        $format2 = date('d-m-Y', strtotime($tgl));
-        $format3 = date('d F Y', strtotime($tgl2));
-		$agama = $data['agama'];
-		$jekel = $data['jekel'];
-		$nama = $data['nama'];
-		$alamat = $data['alamat'];
-        $status_warga = $data['status_warga'];
-        $keperluan = $data['keperluan'];
-        $request = $data['request'];
-        $acc = $data['acc'];
+        $id=$data['id_disposisi'];
+														$dari = $data['dari'];
+														$no_agenda = $data['no_agenda'];
+														$no_surat = $data['no_surat'];
+														$tanggal_surat = $data['tanggal_surat'];
+														$format = date('d F Y', strtotime($tanggal_surat));
+														$jam_diterima = $data['jam_diterima'];
+														$jam = date('H:i:s', strtotime($jam_diterima));
+                                                        $perihal = $data['perihal'];
+                                                        $tanggal_masuk = $data['tanggal_masuk'];
+														$format2 = date('d F Y', strtotime($tanggal_masuk));
+														$catatan = $data['catatan'];
+														$status = $data['status'];
+                                                        $acc = $data['acc'];
         $format4 = date('d F Y', strtotime($acc));
         if($acc==0){
             $acc="BELUM TTD";
@@ -107,7 +111,7 @@
                                         if(isset($_POST['ttd'])){
                                             $ket="Surat sedang dalam proses cetak";
                                             $tgl = $_POST['tgl_acc'];
-                                            $update = mysqli_query($konek,"UPDATE data_request_sktm SET acc='$tgl', status=2, keterangan='$ket' WHERE id_request_sktm=$id");
+                                            $update = mysqli_query($konek,"UPDATE lembar_disposisi SET acc='$tgl', status=2, keterangan='$ket' WHERE id_disposisi=$id");
                                             if($update){
                                                 echo "<script language='javascript'>swal('Selamat...', 'ACC Lurah Berhasil', 'success');</script>" ;
                                                 echo '<meta http-equiv="refresh" content="3; url=?halaman=belum_acc_sktm">';

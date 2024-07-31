@@ -97,7 +97,7 @@ if(isset($_POST['kirim'])){
 		$perihal = $_POST['perihal'];
 		$tanggal_masuk = $_POST['tanggal_masuk'];
 		$catatan = $_POST['catatan'];
-	$sql = "INSERT INTO lembar_disposisi (dari,no_agenda,nomor_surat,tanggal_surat,jam_diterima,perihal,tanggal_masuk,catatan,nik) VALUES ('$dari', '$no_agenda', '$nomor_surat', '$tanggal_surat', '$jam_diterima', '$perihal', '$tanggal_masuk', '$catatan', '$nik')";
+	$sql = "INSERT INTO lembar_disposisi (dari,no_agenda,no_surat,tanggal_surat,jam_diterima,perihal,tanggal_masuk,catatan,nik) VALUES ('$dari', '$no_agenda', '$nomor_surat', '$tanggal_surat', '$jam_diterima', '$perihal', '$tanggal_masuk', '$catatan', '$nik')";
 	$query = mysqli_query($konek,$sql) or die (mysqli_error($konek));
 
 	if($query){

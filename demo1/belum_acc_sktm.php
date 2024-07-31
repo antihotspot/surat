@@ -16,32 +16,38 @@
 										<div class="table-responsive">
 											<table id="add1" class="display table table-striped table-hover" >
 												<thead>
-													<tr>
-														<th>Tanggal Request</th>
-														<th>NIK</th>
-														<th>Nama Lengkap</th>
-														<th>Status</th>
-														<th>Scan KTP</th>
-														<th>Scan KK</th>
-														<th>Keterangan</th>
-														<th style="width: 10%">Action</th>
-													</tr>
+												<tr>
+                                        <th>Dari</th>
+                                        <th>No Agenda</th>
+                                        <th>Nomor Surat</th>
+                                        <th>Tanggal Surat</th>
+                                        <th>Jam Diterima</th>
+                                        <th>Perihal</th>
+                                        <th>Tanggal Masuk</th>
+                                        <th>Catatan</th>
+										<th>Status</th>
+                                        <th style="width: 10%">Action</th>
+                                    </tr>
 												</thead>
 												<tbody>
 													<?php
-														$sql = "SELECT * FROM data_request_sktm natural join data_user where status=1";
+														$sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE status=1";
 														$query = mysqli_query($konek,$sql);
 														while($data=mysqli_fetch_array($query,MYSQLI_BOTH)){
-															$tgl = $data['tanggal_request'];
-															$format = date('d F Y', strtotime($tgl));
-															$nik = $data['nik'];
-															$nama = $data['nama'];
-															$status = $data['status'];
-															$id= $data['id_request_sktm'];
-															$ktp = $data['scan_ktp'];
-															$kk = $data['scan_kk'];
-															$keterangan = $data['keterangan'];
-															$id_request_sktm = $data['id_request_sktm'];
+															$id_disposisi=$data['id_disposisi'];
+														$dari = $data['dari'];
+														$no_agenda = $data['no_agenda'];
+														$no_surat = $data['no_surat'];
+														$tanggal_surat = $data['tanggal_surat'];
+														$format = date('d F Y', strtotime($tanggal_surat));
+														$jam_diterima = $data['jam_diterima'];
+														$jam = date('H:i:s', strtotime($jam_diterima));
+                                                        $perihal = $data['perihal'];
+                                                        $tanggal_masuk = $data['tanggal_masuk'];
+														$format2 = date('d F Y', strtotime($tanggal_masuk));
+														$catatan = $data['catatan'];
+														$status = $data['status'];
+															
 	
 															if($status=="1"){
 																$status = "Sudah ACC Staf";
@@ -50,24 +56,20 @@
 															}
 													?>
 													<tr>
-														<td><?php echo $format;?></td>
-														<td><?php echo $nik;?></td>
-														<td><?php echo $nama;?></td>
-														<td class="fw-bold text-uppercase text-success op-8"><?php echo $status;?></td>
-														<td><img src="../dataFoto/scan_ktp/<?php echo $ktp;?>" width="50" height="50" alt=""></td>
-														<td><img src="../dataFoto/scan_kk/<?php echo $kk;?>" width="50" height="50" alt=""></td>
-														<td><i><?php echo $keterangan;?></i></td>
-														<!-- <td>
-															<input type="checkbox" name="check[$i]" value="<?php echo $id;?>">
-															<input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
-															<div class="form-button-action">
-																<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=detail_sktm&id_request_sktm=<?= $id_request_sktm;?>">
-																<i class="fa fa-edit"></i></a>
-															</div>
-														</td> -->
+														</td>
+														<td><?php echo $dari;?></td>
+												<td><?php echo $no_agenda;?></td>
+												<td><?php echo $no_surat;?></td>
+													<td><?php echo $format;?></td>
+                                                    <td><?php echo $jam;?></td>
+                                                    <td><?php echo $perihal;?></td>
+													<td><?php echo $format2;?></td>
+													<td><?php echo $catatan;?></td>
+													<td><?php echo $status;?></td>
+														
 														<td>
 															<div class="form-button-action">
-																<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Surat" href="?halaman=view_sktm&id_request_sktm=<?= $id_request_sktm;?>">
+																<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="View Surat" href="?halaman=view_sktm&id_disposisi=<?= $id_disposisi;?>">
 																<i class="fa fa-edit"></i></a>
 															</div>
 														</td>

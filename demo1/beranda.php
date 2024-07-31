@@ -137,9 +137,9 @@
 											</a>
 											<div class="col col-stats ml-3 ml-sm-0">
 												<div class="numbers">
-													<p class="card-category">SKTM</p>
+													<p class="card-category">Lembar Disposisi</p>
 													<?php
-													$sql = "SELECT * FROM data_request_sktm WHERE status=1";
+													$sql = "SELECT * FROM lembar_disposisi WHERE status=1";
 													$query = mysqli_query($konek,$sql);
 													$data = mysqli_fetch_array($query,MYSQLI_BOTH);
 													$count = mysqli_num_rows($query);

@@ -30,13 +30,14 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $i= 1;
                                         $sql = "SELECT * FROM lembar_disposisi NATURAL JOIN data_user WHERE status=0";
                                         $query = mysqli_query($konek, $sql);
                                         while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
-                                            $id_request_disposisi = $data['id_request_disposisi'];
+                                            $id_disposisi = $data['id_disposisi'];
                                             $dari = $data['dari'];
                                             $no_agenda = $data['no_agenda'];
-                                            $no_surat = $data['nomor_surat'];
+                                            $no_surat = $data['no_surat'];
                                             $tanggal_surat = $data['tanggal_surat'];
                                             $jam_diterima = $data['jam_diterima'];
                                             $perihal = $data['perihal'];
@@ -60,13 +61,12 @@
                                         <td><?php echo $tanggal_masuk; ?></td>
                                         <td><?php echo $catatan; ?></td>
                                         <td>
-                                            <input type="checkbox" name="check[]" value="<?php echo $id_request_disposisi; ?>">
-                                            <input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
-                                            <div class="form-button-action">
-                                                <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sktm&id_request_disposisi=<?= $id_request_disposisi; ?>">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                            </div>
+                                        <input type="checkbox" name="check[$i]" value="<?php echo $id_disposisi;?>">
+															<input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
+															<div class="form-button-action">
+																<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sktm&id_disposisi=<?= $id_disposisi;?>">
+																<i class="fa fa-edit"></i></a>
+															</div>
                                         </td>
                                     </tr>
                                     <?php
@@ -86,7 +86,7 @@
 if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
-            $ubah = "UPDATE lembar_disposisi SET status=1 WHERE id_request_disposisi = $value";
+            $ubah = "UPDATE lembar_disposisi SET status=1 WHERE id_disposisi = $value";
             $query = mysqli_query($konek, $ubah);
 
             if ($query) {
