@@ -61,19 +61,19 @@
 		$query = mysqli_query($konek,$sql);
         $data = mysqli_fetch_array($query,MYSQLI_BOTH);
         $id=$data['id_disposisi'];
-														$dari = $data['dari'];
-														$no_agenda = $data['no_agenda'];
-														$no_surat = $data['no_surat'];
-														$tanggal_surat = $data['tanggal_surat'];
-														$format = date('d F Y', strtotime($tanggal_surat));
-														$jam_diterima = $data['jam_diterima'];
-														$jam = date('H:i:s', strtotime($jam_diterima));
-                                                        $perihal = $data['perihal'];
-                                                        $tanggal_masuk = $data['tanggal_masuk'];
-														$format2 = date('d F Y', strtotime($tanggal_masuk));
-														$catatan = $data['catatan'];
-														$status = $data['status'];
-                                                        $acc = $data['acc'];
+		$dari = $data['dari'];
+	    $no_agenda = $data['no_agenda'];
+		$no_surat = $data['no_surat'];
+        $tanggal_surat = $data['tanggal_surat'];
+        $format = date('d F Y', strtotime($tanggal_surat));
+        $jam_diterima = $data['jam_diterima'];
+        $jam = date('H:i:s', strtotime($jam_diterima));
+        $perihal = $data['perihal'];
+        $tanggal_masuk = $data['tanggal_masuk'];
+        $format2 = date('d F Y', strtotime($tanggal_masuk));
+        $catatan = $data['catatan'];
+        $status = $data['status'];
+        $acc = $data['acc'];
         $format4 = date('d F Y', strtotime($acc));
         if($acc==0){
             $acc="BELUM TTD";
@@ -170,7 +170,7 @@
                                         <tr>
                                             <td style="text-align:left;">Tanggal Surat</td>
                                             <td>:</td>
-                                            <td style="text-align:left;"><?php echo $tanggal_surat; ?></td>
+                                            <td style="text-align:left;"><?php echo $format; ?></td>
                                             <td colspan="3"></td>
                                         </tr>
                                         <tr><td></td></tr>
@@ -203,7 +203,7 @@
                                         <tr>
                                             <td style="text-align:left;">Tanggal Masuk</td>
                                             <td>:</td>
-                                            <td style="text-align:left;"><?php echo $tanggal_masuk; ?></td>
+                                            <td style="text-align:left;"><?php echo $format2; ?></td>
                                             <td colspan="3"></td>
                                         </tr>
                                         <tr><td></td></tr>

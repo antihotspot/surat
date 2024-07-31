@@ -48,26 +48,22 @@
 </style>
 
 <?php
-	if(isset($_GET['id_request_sktm'])){
-		$id=$_GET['id_request_sktm'];
-		$sql = "SELECT * FROM data_request_sktm natural join data_user WHERE id_request_sktm='$id'";
+	if(isset($_GET['id_disposisi'])){
+		$id=$_GET['id_disposisi'];
+		$sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE id_disposisi='$id'";
 		$query = mysqli_query($konek,$sql);
         $data = mysqli_fetch_array($query,MYSQLI_BOTH);
-        $id=$data['id_request_sktm'];
-        $nik = $data['nik'];
-		$nama = $data['nama'];
-		$tempat = $data['tempat_lahir'];
-        $tgl = $data['tanggal_lahir'];
-        $tgl2 = $data['tanggal_request'];
-        $format1 = date('Y', strtotime($tgl2));
-        $format2 = date('d-m-Y', strtotime($tgl));
-        $format3 = date('d F Y', strtotime($tgl2));
-		$agama = $data['agama'];
-		$jekel = $data['jekel'];
-		$nama = $data['nama'];
-		$alamat = $data['alamat'];
-		$status_warga = $data['status_warga'];
-        $keperluan = $data['keperluan'];
+        $id=$data['id_disposisi'];
+        $dari=$data['dari'];
+        $no_agenda=$data['no_agenda'];
+        $no_surat=$data['no_surat'];
+        $tanggal_surat=$data['tanggal_surat'];
+        $format = date('d F Y', strtotime($tanggal_surat));
+        $jam_diterima=$data['jam_diterima'];
+        $perihal=$data['perihal'];
+        $tanggal_masuk=$data['tanggal_masuk'];
+        $format2 = date('d F Y', strtotime($tanggal_masuk));
+       
         $request = $data['request'];
         $keterangan = $data['keterangan'];
         $status = $data['status'];
@@ -82,6 +78,9 @@
         if($status==3){
             $keterangan="Sudah ACC Lurah, surat sedang dalam proses cetak oleh staf";
         }
+
+        $catatan = $data['catatan']; // Ambil catatan dari database
+        $catatan_baris = explode("\n", $catatan); // Pisahkan catatan menjadi baris-baris
 	}
 ?>
 
@@ -110,7 +109,7 @@
                                                 </select><br>
                                                 <!-- <input type="date" name="tgl_acc" class="form-control"> -->
                                                     <input type="submit" name="ttd" value="Kirim" class="btn btn-primary btn-sm">
-                                                    <a href="cetak_sktm.php?id_request_sktm=<?=$id;?>" class="btn btn-primary btn-sm">Cetak</a>
+                                                    <a href="cetak_sktm.php?id_disposisi=<?=$id;?>" class="btn btn-primary btn-sm">Cetak</a>
                                                 <!-- <div class="form-group">
                                                     <a href="cetak_skd.php?id_request_skd=<?php $id;?>">
                                                         Cetak
@@ -124,7 +123,7 @@
                                         <?php
                                         if(isset($_POST['ttd'])){
                                             $cetak = $_POST['dicetak'];
-                                            $update = mysqli_query($konek,"UPDATE data_request_sktm SET keterangan='$cetak', status=3 WHERE id_request_sktm=$id");
+                                            $update = mysqli_query($konek,"UPDATE lembar_disposisi SET keterangan='$cetak', status=3 WHERE id_disposisi=$id");
                                             if($update){
                                                 echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>" ;
                                                 echo '<meta http-equiv="refresh" content="3; url=?halaman=belum_acc_sktm">';
@@ -186,7 +185,7 @@
                                         <tr>
                                             <td style="text-align:left;">Tanggal Surat</td>
                                             <td>:</td>
-                                            <td style="text-align:left;"><?php echo $tanggal_surat; ?></td>
+                                            <td style="text-align:left;"><?php echo $format; ?></td>
                                             <td colspan="3"></td>
                                         </tr>
                                         <tr><td></td></tr>
@@ -219,7 +218,7 @@
                                         <tr>
                                             <td style="text-align:left;">Tanggal Masuk</td>
                                             <td>:</td>
-                                            <td style="text-align:left;"><?php echo $tanggal_masuk; ?></td>
+                                            <td style="text-align:left;"><?php echo $format2; ?></td>
                                             <td colspan="3"></td>
                                         </tr>
                                         <tr><td></td></tr>
@@ -361,122 +360,55 @@
 
                                     <div class="container">
                                         <div class="notes">
-                                            <div class="line"></div>
-                                            <div class="line"></div>
-                                            <div class="line"></div>
-                                            <div class="line"></div>
-                                            <div class="line"></div>
-                                            <div class="line"></div>
+                                            <?php
+                                            // Menampilkan catatan ke dalam div line
+                                            foreach ($catatan_baris as $baris) {
+                                                echo '<div class="line">' . htmlspecialchars($baris) . '</div>';
+                                            }
+                                            // Menambahkan div kosong jika kurang dari 7 baris
+                                            $jumlah_baris = count($catatan_baris);
+                                            for ($i = $jumlah_baris; $i < 7; $i++) {
+                                                echo '<div class="line"></div>';
+                                            }
+                                            ?>
                                         </div>
-
-                                    <div class="footer">
-                                        <div class="footer-left">
-                                            <p>Terima kasih,</p>
-                                            <p style="margin-top: 50px;">___________________</p>
+                                        <br>
+                                        <br>
+                                        <div class="footer-left" style="float: left; width: 50%;">
+                                                <p>Terima kasih,</p>
                                         </div>
-                                        <div class="footer-right">
-                                            <div class="signature-box">
-                                                <div class="left">
-                                                    <div class="label">
-                                                        <div>Tanggal</div>
-                                                        <div>:</div>
-                                                        <div></div>
+                                        <div class="footer-right" style="float: right; width: 50%; text-align: right;">
+                                                <div class="signature-box">
+                                                    <div class="left">
+                                                        <div class="label">
+                                                            <div>Tanggal</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                        <div class="label">
+                                                            <div>Bulan</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
+                                                        <div class="label">
+                                                            <div>Tahun</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
                                                     </div>
-                                                    <div class="label">
-                                                        <div>Bulan</div>
-                                                        <div>:</div>
-                                                        <div></div>
-                                                    </div>
-                                                    <div class="label">
-                                                        <div>Tahun</div>
-                                                        <div>:</div>
-                                                        <div></div>
+                                                    <div class="right">
+                                                        <div class="label">
+                                                            <div>Paraf</div>
+                                                            <div>:</div>
+                                                            <div></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="right">
-                                                    <div class="label">
-                                                        <div>Paraf</div>
-                                                        <div>:</div>
-                                                        <div></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                         </div>
 
-        </div>
-
-    </div>
-
-                                    <br>
-                                    <table border="0" align="center">
-                                        <tr>
-                                            <th></th>
-                                            <th width="100px"></th>
-                                            <th>Kudus, <?php echo $acc;?></th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tanda tangan <br> Yang bersangkutan </td>
-                                            <td></td>
-                                            <td>Lurah Wergu Wetan</td>
-                                        </tr>
-                                        <tr>
-                                            <td rowspan="15"></td>
-                                            <td></td>
-                                            <td rowspan="15"></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr><tr>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td><b style="text-transform:uppercase"><u>(<?php echo $nama;?>)</u></b></td>
-                                            <td></td>
-                                            <td><b><u>(AGUS SUPRIYANTO)</u></b></td>
-                                        </tr>
-                                    </table>
-                                
-                                </table>
-
+                                    </div>
 								</div>
 							</div>
 						</div>
 					</div>
-			</div>
+			    </div>

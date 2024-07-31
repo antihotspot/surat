@@ -77,28 +77,28 @@
 <body>
 <?php include '../konek.php';?>
 <?php
-    if(isset($_GET['id_request_sktm'])){
-        $id=$_GET['id_request_sktm'];
-        $sql = "SELECT * FROM data_request_sktm natural join data_user WHERE id_request_sktm='$id'";
+    if(isset($_GET['id_disposisi'])){
+        $id=$_GET['id_disposisi'];
+        $sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE id_disposisi='$id'";
         $query = mysqli_query($konek,$sql);
         $data = mysqli_fetch_array($query,MYSQLI_BOTH);
-        $nik = $data['nik'];
-        $nama = $data['nama'];
-        $tempat = $data['tempat_lahir'];
+        $dari = $data['dari'];
+        $no_agenda = $data['no_agenda'];
+        $no_surat = $data['no_surat'];
         $tgl = $data['tanggal_lahir'];
-        $tgl2 = $data['tanggal_request'];
-        $format2 = date('Y', strtotime($tgl2));
-        $format1 = date('d-m-Y', strtotime($tgl));
-        $format3 = date('d F Y', strtotime($tgl2));
-        $agama = $data['agama'];
-        $jekel = $data['jekel'];
-        $nama = $data['nama'];
-        $alamat = $data['alamat'];
-        $status_warga = $data['status_warga'];
+        $tgl2 = $data['tanggal_request'];;
+        $tanggal_surat=$data['tanggal_surat'];
+        $format = date('d F Y', strtotime($tanggal_surat));
+        $jam_diterima=$data['jam_diterima'];
+        $perihal=$data['perihal'];
+        $tanggal_masuk=$data['tanggal_masuk'];
+        $format2 = date('d F Y', strtotime($tanggal_masuk));
         $request = $data['request'];
         $keperluan = $data['keperluan'];
         $acc = $data['acc'];
         $format4 = date('d F Y', strtotime($acc));
+        $catatan = $data['catatan']; // Ambil catatan dari database
+        $catatan_baris = explode("\n", $catatan); // Pisahkan catatan menjadi baris-baris
     }
 ?>
 <div class="row">
@@ -309,12 +309,17 @@
 
                 <div class="container">
                     <div class="notes">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
+                    <?php
+                        // Menampilkan catatan ke dalam div line
+                        foreach ($catatan_baris as $baris) {
+                            echo '<div class="line">' . htmlspecialchars($baris) . '</div>';
+                        }
+                        // Menambahkan div kosong jika kurang dari 7 baris
+                        $jumlah_baris = count($catatan_baris);
+                        for ($i = $jumlah_baris; $i < 7; $i++) {
+                            echo '<div class="line"></div>';
+                        }
+                    ?>
                     </div>
                     <br>
                     <br>
