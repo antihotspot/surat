@@ -85,8 +85,8 @@ if(isset($_POST['kirim'])){
 	$query = mysqli_query($konek,$sql) or die (mysqli_error());
 
 	if($query){
-		copy($_FILES['ktp']['tmp_name'],"../dataFoto/scan_ktp/".$file_ktp);
-		copy($_FILES['kk']['tmp_name'],"../dataFoto/scan_kk/".$file_kk);
+		// copy($_FILES['ktp']['tmp_name'],"../dataFoto/scan_ktp/".$file_ktp);
+		// copy($_FILES['kk']['tmp_name'],"../dataFoto/scan_kk/".$file_kk);
 		echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>" ;
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=tampil_status">';
 	  }else{

@@ -16,23 +16,23 @@
 										<table id="add1" class="display table table-striped table-hover" >
 											<thead>
 												<tr>
-                                                    <th>Tanggal Request</th>
-                                                    <th>NIK</th>
-                                                    <th>Nama Lengkap</th>
-													<th>Scan KTP</th>
-													<th>Scan KK</th>
-													<th>Keperluan</th>
+                                                    <th>Dari</th>
+                                                    <th>Nomor Surat</th>
+                                                    <th>Tanggal Surat</th>
+													<th>Jam Diterima</th>
+													<th>Perihal</th>
+													<th>Tanggal Masuk</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
 											<tbody>
                                                 <?php
-                                                    $sql = "SELECT * FROM data_request_sktm natural join data_user WHERE status=2";
+                                                    $sql = "SELECT * FROM lembar_disposisi natural join data_user WHERE status=2";
                                                     $query = mysqli_query($konek,$sql);
                                                     while($data=mysqli_fetch_array($query,MYSQLI_BOTH)){
-                                                        $id_request_sktm=$data['id_request_sktm'];
+                                                        $id_disposisi=$data['id_disposisi'];
 														$tgl = $data['tanggal_request'];
-														$format = date('d F Y', strtotime($tgl));
+														$dari = $data['dari'];
                                                         $nik = $data['nik'];
                                                         $nama = $data['nama'];
 														$status = $data['status'];
@@ -47,7 +47,7 @@
                                                         }
                                                 ?>
 												<tr>
-													<td><?php echo $format;?></td>
+													<td><?php echo $dari;?></td>
                                                     <td><?php echo $nik;?></td>
                                                     <td><?php echo $nama;?></td>
 													<td><img src="../dataFoto/scan_ktp/<?php echo $ktp;?>" width="50" height="50" alt=""></td>

@@ -48,9 +48,9 @@
 </style>
 
 <?php
-	if(isset($_GET['id_request_sktm'])){
+	if(isset($_GET['id_disposisi'])){
 		$id=$_GET['id_request_sktm'];
-		$sql = "SELECT * FROM data_request_sktm natural join data_user WHERE id_request_sktm='$id'";
+		$sql = "SELECT * FROM data_request_sktm natural join data_user WHERE id_disposisi='$id'";
 		$query = mysqli_query($konek,$sql);
         $data = mysqli_fetch_array($query,MYSQLI_BOTH);
         $id=$data['id_request_sktm'];

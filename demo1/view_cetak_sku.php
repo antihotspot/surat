@@ -101,7 +101,7 @@
                                 <table border="1" align="center">
                                     <table border="0" align="center">
                                         <tr>
-                                        <td><img src="img/kudus.png" width="70" height="87" alt=""></td>
+                                        <td><img src="img/KPU.png" width="70" height="87" alt=""></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -123,10 +123,10 @@
                                         <td></td>
                                             <td>
                                                 <center>
-                                                    <font size="4">PEMERINTAHAN KABUPATEN KUDUS</font><br>
-                                                    <font size="4">KECAMATAN KOTA KUDUS</font><br>
-                                                    <font size="5"><b>KELURAHAN WERGU WETAN</b></font><br>
-                                                    <font size="2"><i>JL. Loram No.9 Kudus 59318</i></font><br>
+                                                    <font size="5"><b>KOMISI PEMILIHAN UMUM</b></font><br>
+                                                    <font size="5"><b>KOTA MOJOKERTO</b></font><br>
+                                                    <font size="2">Alamat: Jl. Pahlawan No. 11 Mojokerto</font><br>
+                                                    <font size="2">Telp. (0321) 329889 / 329556  Email : kpukotamojokerto@gmail.com</font>
                                                 </center>
                                             </td>
                                         <td></td>
