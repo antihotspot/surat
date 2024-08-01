@@ -13,7 +13,7 @@
         .line {
             border-bottom: 1px solid black;
             height: 15px;
-            margin: 2px -15px;
+            margin: 2px;
         }
         .footer {
             display: flex;
@@ -96,15 +96,15 @@
         $no_agenda = $data['no_agenda'];
         $no_surat = $data['no_surat'];
         $tgl = $data['tanggal_lahir'];
-        $tgl2 = $data['tanggal_request'];;
+        // $tgl2 = $data['tanggal_request'];;
         $tanggal_surat=$data['tanggal_surat'];
         $format = date('d F Y', strtotime($tanggal_surat));
         $jam_diterima=$data['jam_diterima'];
         $perihal=$data['perihal'];
         $tanggal_masuk=$data['tanggal_masuk'];
         $format2 = date('d F Y', strtotime($tanggal_masuk));
-        $request = $data['request'];
-        $keperluan = $data['keperluan'];
+        // $request = $data['request'];
+        // $keperluan = $data['keperluan'];
         $acc = $data['acc'];
         $format4 = date('d F Y', strtotime($acc));
         $catatan = $data['catatan']; // Ambil catatan dari database
@@ -314,7 +314,7 @@
                 <br>
                 
                 <table>
-                    <tr>Catatan :</tr>   
+                    <tr><td>Catatan :</td></tr>   
                 </table>
 
                 <div class="container">

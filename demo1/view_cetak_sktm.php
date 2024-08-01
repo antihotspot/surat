@@ -74,7 +74,7 @@
         $tanggal_masuk=$data['tanggal_masuk'];
         $format2 = date('d F Y', strtotime($tanggal_masuk));
        
-        $request = $data['request'];
+        // $request = $data['request'];
         $keterangan = $data['keterangan'];
         $status = $data['status'];
         $acc = $data['acc'];
