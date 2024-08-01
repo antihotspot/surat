@@ -144,7 +144,7 @@
                     <tr>
                         <td style="text-align:left;">Tanggal Surat</td>
                         <td>:</td>
-                        <td style="text-align:left;"><?php echo $tanggal_surat; ?></td>
+                        <td style="text-align:left;"><?php echo $format; ?></td>
                         <td colspan="3"></td>
                     </tr>
                     <tr><td></td></tr>
@@ -171,7 +171,7 @@
                     <tr>
                         <td style="text-align:left;">Tanggal Masuk</td>
                         <td>:</td>
-                        <td style="text-align:left;"><?php echo $tanggal_masuk; ?></td>
+                        <td style="text-align:left;"><?php echo $format2; ?></td>
                         <td colspan="3"></td>
                     </tr>
                     <tr><td></td></tr>
