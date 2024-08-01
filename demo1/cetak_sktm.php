@@ -75,7 +75,17 @@
     </style>
 </head>
 <body>
-<?php include '../konek.php';?>
+<?php 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+	include '/Applications/XAMPP/xamppfiles/htdocs/surat-keterangan-desa/konek.php';
+	
+	if (!$konek) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+?>
 <?php
     if(isset($_GET['id_disposisi'])){
         $id=$_GET['id_disposisi'];

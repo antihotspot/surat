@@ -1,4 +1,14 @@
-<?php include '../konek.php';?>
+<?php 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	
+	include '/Applications/XAMPP/xamppfiles/htdocs/surat-keterangan-desa/konek.php';
+	
+	if (!$konek) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+?>
 <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 <script src="js/jquery-2.1.3.min.js"></script>
 <script src="js/sweetalert.min.js"></script> 
