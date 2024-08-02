@@ -30,13 +30,13 @@
 								<div class="card-body">
 									<div class="row">
 											<div class="col-md-6 col-lg-6">
-											<div class="form-group">
+												<!-- <div class="form-group">
 													<label>NIK</label>
 													<input type="text" class="form-control" value="<?= $nik.' - '.$nama;?>" readonly>
 												</div>
 												<div class="form-group">
 													<input type="hidden" name="nik" class="form-control" value="<?= $nik;?>" readonly>
-												</div>
+												</div> -->
 												<div class="form-group">
 													<label>Dari</label>
 													<input type="text" name="dari" class="form-control" autofocus>
@@ -46,28 +46,101 @@
 													<input type="text" name="no_surat" class="form-control" autofocus>
 												</div>
 												<div class="form-group">
-													<label>Tanggal Surat</label>
-													<input type="date" name="tanggal_surat" class="form-control" autofocus>
-												</div>
-												<div class="form-group">
-													<label>Jam Diterima</label>
-													<input type="time" name="jam_diterima" class="form-control" autofocus>
+													<label>No. Agenda</label>
+													<input type="text" name="no_agenda" class="form-control" size="37" required>
 												</div>
 												<div class="form-group">
 													<label>Perihal</label>
 													<input type="text" name="perihal" class="form-control" autofocus>
 												</div>
+												
 												<div class="form-group">
-													<label>Tanggal Masuk</label>
-													<input type="date" name="tanggal_masuk" class="form-control" autofocus>
+													<label>Yth</label>
+													<br>
+													<input type="checkbox" id="ketua">
+                            						<label for="ketua" class="checkbox-label">Ketua / Divisi Keuangan, Umum, Logistik dan Rumah Tangga</label>
+													<br>
+													<input type="checkbox" id="hukum">
+                            						<label for="hukum" class="checkbox-label">Divisi Hukum dan Pengawasan</label>
+													<br>
+													<input type="checkbox" id="teknis">
+                            						<label for="teknis" class="checkbox-label">Divisi Teknis Penyelenggaraan Pemilu</label>
+													<br>
+													<input type="checkbox" id="perencanaan">
+                            						<label for="perencanaan" class="checkbox-label">Divisi Perencanaan Data dan Informasi</label>
+													<br>
+													<input type="checkbox" id="sosialisasi">
+                            						<label for="sosialisasi" class="checkbox-label">Divisi Sosialisasi, Pendidikan Pemilih, Parmas dan SDM</label>
+													<br>
+													<input type="checkbox" id="sdr">
+                            						<label for="sdr" class="checkbox-label">Sdr. ............................................................</label>
+												</div>
+
+												<div class="form-group">
+													<label>Sifat</label>
+													<br>
+													<input type="checkbox" id="biasa">
+                            						<label for="biasa" class="checkbox-label">Biasa</label>
+													<br>
+													<input type="checkbox" id="mendesak">
+                            						<label for="mendesak" class="checkbox-label">Mendesak</label>
+													<br>
+													<input type="checkbox" id="perhatian-khusus">
+                            						<label for="perhatian-khusus" class="checkbox-label">Perlu Perhatian Khusus</label>
+													<br>
+													<input type="checkbox" id="batas-waktu">
+                            						<label for="batas-waktu" class="checkbox-label">Perlu Perhatian Batas Waktu</label>
+												</div>
+
+												<div class="form-group">
+													<label>Mohon bantuan Saudara untuk :</label><br>
+													<input type="checkbox" id="dokumentasi">
+													<label for="dokumentasi" class="checkbox-label">Dokumentasi/File</label><br>
+													<input type="checkbox" id="mewakili">
+													<label for="mewakili" class="checkbox-label">Mohon hadir mewakili saya</label><br>
+													<input type="checkbox" id="membicarakan">
+													<label for="membicarakan" class="checkbox-label">Membicarakan dengan saya</label><br>
+													<input type="checkbox" id="jawaban">
+													<label for="jawaban" class="checkbox-label">Membuat jawaban/tanggapan</label><br>
+													<input type="checkbox" id="hadir">
+													<label for="hadir" class="checkbox-label">Ikut hadir</label><br>
+													<input type="checkbox" id="memantau">
+													<label for="memantau" class="checkbox-label">Memantau</label><br>
+													<input type="checkbox" id="konsep">
+													<label for="konsep" class="checkbox-label">Menyiapkan konsep / bahan</label>
+													<input type="checkbox" id="informasi">
+													<label for="informasi" class="checkbox-label">Diketahui/sbg. Informasi</label><br>
+													<input type="checkbox" id="saran">
+													<label for="saran" class="checkbox-label">Mempelajari dan memberikan saran</label><br>
+													<input type="checkbox" id="tindaklanjut">
+													<label for="tindaklanjut" class="checkbox-label">Melaksanakan/menindaklanjuti</label><br>
+													<input type="checkbox" id="prosedur">
+													<label for="prosedur" class="checkbox-label">Memproses sesuai prosedur</label><br>
+													<input type="checkbox" id="selesai">
+													<label for="selesai" class="checkbox-label">Menyelesaikan sebelum batas waktu</label><br>
+													<input type="checkbox" id="koordinasi">
+													<label for="koordinasi" class="checkbox-label">Mengkoordinasikan</label><br>
+													<input type="checkbox" id="arsip">
+													<label for="arsip" class="checkbox-label">Arsip Tata Usaha</label>
 												</div>
 											</div>
 											<div class="col-md-6 col-lg-6">		
 												<div class="form-group">
-													<label>No. Agenda</label>
-													<input type="text" name="no_agenda" class="form-control" size="37" required>
+													<label>Tanggal Surat</label>
+													<input type="date" name="tanggal_surat" class="form-control" autofocus>
 												</div>
-											</div>
+												<div class="form-group">
+													<label>Tanggal Masuk</label>
+													<input type="date" name="tanggal_masuk" class="form-control" autofocus>
+												</div>
+												<div class="form-group">
+													<label>Jam Diterima</label>
+													<input type="time" name="jam_diterima" class="form-control" autofocus>
+												</div>
+												
+											</div>	
+											
+																						
 											<div class="col-md-6 col-lg-6">		
 												<div class="form-group">
 													<label>Catatan</label>

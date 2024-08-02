@@ -13,7 +13,9 @@
         .line {
             border-bottom: 1px solid black;
             height: 15px;
-            margin: 2px;
+            line-height: 15px; /* Set the line-height to match the height */
+            margin: 0; /* Remove margin to prevent floating */
+            padding: 0;
         }
         .footer {
             display: flex;
@@ -95,16 +97,50 @@
         $dari = $data['dari'];
         $no_agenda = $data['no_agenda'];
         $no_surat = $data['no_surat'];
-        $tgl = $data['tanggal_lahir'];
-        // $tgl2 = $data['tanggal_request'];;
-        $tanggal_surat=$data['tanggal_surat'];
-        $format = date('d F Y', strtotime($tanggal_surat));
+        
+        $bulanInggris = array(
+            'January' => 'Januari',
+            'February' => 'Februari',
+            'March' => 'Maret',
+            'April' => 'April',
+            'May' => 'Mei',
+            'June' => 'Juni',
+            'July' => 'Juli',
+            'August' => 'Agustus',
+            'September' => 'September',
+            'October' => 'Oktober',
+            'November' => 'November',
+            'December' => 'Desember'
+        );
+        
+        function formatTanggalIndonesia($tanggal, $bulanInggris) {
+            if (!is_null($tanggal) && $tanggal !== '') {
+                // Mengonversi string tanggal menjadi timestamp
+                $timestamp = strtotime($tanggal);
+                
+                // Mendapatkan hari, bulan, dan tahun
+                $hari = date('d', $timestamp);
+                $bulan = date('F', $timestamp);
+                $tahun = date('Y', $timestamp);
+                
+                // Mengganti nama bulan Inggris dengan Indonesia
+                $bulanIndonesia = $bulanInggris[$bulan];
+                
+                // Format akhir
+                return $hari . ' ' . $bulanIndonesia . ' ' . $tahun;
+            } else {
+                return 'Tanggal tidak valid';
+            }
+        }
+        $tanggal_surat = $data['tanggal_surat'];
+        $tanggal_masuk = $data['tanggal_masuk'];
+
+        $format = formatTanggalIndonesia($tanggal_surat, $bulanInggris);
+        $format2 = formatTanggalIndonesia($tanggal_masuk, $bulanInggris);
+        
         $jam_diterima=$data['jam_diterima'];
+        $jam = date('H:i', strtotime($jam_diterima));
         $perihal=$data['perihal'];
-        $tanggal_masuk=$data['tanggal_masuk'];
-        $format2 = date('d F Y', strtotime($tanggal_masuk));
-        // $request = $data['request'];
-        // $keperluan = $data['keperluan'];
         $acc = $data['acc'];
         $format4 = date('d F Y', strtotime($acc));
         $catatan = $data['catatan']; // Ambil catatan dari database
@@ -163,7 +199,7 @@
                     <tr>
                         <td style="text-align:left;">Jam Diterima</td>
                         <td>:</td>
-                        <td style="text-align:left;"><?php echo $jam_diterima; ?></td>
+                        <td style="text-align:left;"><?php echo $jam; ?> WIB</td>
                         <td colspan="3"></td>
                     </tr>
                     <tr><td></td></tr>
@@ -257,13 +293,13 @@
                     <tr>
                         <td></td>
                         <td>
-                            <input type="checkbox" id="teknis">
-                            <label for="teknis" class="checkbox-label">Mendesak</label>
+                            <input type="checkbox" id="mendesak">
+                            <label for="mendesak" class="checkbox-label">Mendesak</label>
                         </td>
                         <td></td>
                         <td>
-                            <input type="checkbox" id="perencanaan">
-                            <label for="perencanaan" class="checkbox-label">Perlu Perhatian Batas Waktu</label>
+                            <input type="checkbox" id="batas-waktu">
+                            <label for="batas-waktu" class="checkbox-label">Perlu Perhatian Batas Waktu</label>
                         </td>
                     </tr>
                 </table>
